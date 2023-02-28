@@ -1,5 +1,5 @@
-#!/usr/bin/env groovy
 #!groovy
+
 class Global {
     static Map config = null
 }
