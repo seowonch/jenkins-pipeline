@@ -1,0 +1,31 @@
+general:
+  project_name:
+build:
+  language:
+    name: jdk
+    version: 8
+  dockerfile_path:
+  docker_build_options: "--build-arg A=B"
+deploy:
+  type: online
+  log_dir: "/logs"
+  istio: on
+  dns: no-dns
+  health_check:
+    type: http
+    path: /api/ping
+  service:
+    - name: http
+      port: 8080
+      dns: no-dns
+      protocol: http
+  actuator:
+    enable: false
+    path: disabled
+  deploy_stage:
+    dev: false
+    beta: false
+    production: false
+global:
+  docker_registry: test.com
+  kubeconfig_dir: test.com
